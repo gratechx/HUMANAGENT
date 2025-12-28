@@ -1,0 +1,8 @@
+{
+  "extension_name": { "message": "Comet-X" },
+  "extension_description": { "message": "البديل المفتوح المصدر لـ Perplexity Comet - مدعوم بـ Azure OpenAI" },
+  "ask_comet": { "message": "اسأل Comet-X" },
+  "explain_this": { "message": "اشرح هذا" },
+  "translate_to_arabic": { "message": "ترجم إلى العربية" },
+  "summarize_page": { "message": "لخص الصفحة" }
+}

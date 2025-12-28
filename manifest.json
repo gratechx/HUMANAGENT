@@ -1,0 +1,87 @@
+{
+  "manifest_version": 3,
+  "name": "Comet-X",
+  "version": "1.0.0",
+  "description": "البديل المفتوح المصدر لـ Perplexity Comet - مدعوم بـ Azure OpenAI",
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "sidePanel",
+    "contextMenus",
+    "webNavigation",
+    "clipboardWrite",
+    "clipboardRead"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Comet-X - AI Assistant"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "chrome://*/*",
+        "chrome-extension://*/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "فتح Comet-X"
+    },
+    "ask-ai": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "سؤال AI عن النص المحدد"
+    }
+  },
+  
+  "options_page": "src/options/index.html"
+}
